@@ -21,8 +21,10 @@ body { margin:0; padding:0; }
             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        L.marker([51.5, -0.09]).addTo(map);
-        L.marker([51.5, -0.15]).addTo(map);
+        var marker1 = L.marker([51.5, -0.09],{highlight:true}).addTo(map);
+        var marker2 = L.marker([51.5, -0.15]).addTo(map);
+
+        // marker1.enableHighlight();
         
     </script>
 </body>

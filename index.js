@@ -2,22 +2,34 @@ L.Marker.include({
     _initIcon: function () {
         this._initIconOrigin();
 
-        var light = L.DivIcon.prototype.createIcon();
-        L.DomUtil.addClass(light,"light");
-        L.DomUtil.create('span','glow',light);
-        L.DomUtil.create('span','flare',light);
-        this._light = light
+        
+        var light = this._light = L.DivIcon.prototype.createIcon();
+        L.DomUtil.addClass(light, "light");
+        L.DomUtil.create('span', 'glow', light);
+        L.DomUtil.create('span', 'flare', light);
+        if (this.options.highlight) {
+            L.DomUtil.addClass(light, "active");
+        }
         this.getPane().appendChild(light);
     },
 
     _setPos: function (pos) {
         this._setPosOrigin(pos)
-		
         L.DomUtil.setPosition(this._light, pos);
-	},
+    },
 
-    _initIconOrigin:function(){
-                //The same as _ininIcon
+    enableHighlight: function () {
+        this.options.highlight = true;
+        L.DomUtil.addClass(this._light, "active");
+    },
+
+    disableHighlight: function (value) {
+        this.options.highlight = false;
+        L.DomUtil.removeClass(this._light, "active")
+    },
+
+    _initIconOrigin: function () {
+        //The same as _ininIcon
         var options = this.options,
             classToAdd = 'leaflet-zoom-' + (this._zoomAnimated ? 'animated' : 'hide');
 
@@ -82,15 +94,15 @@ L.Marker.include({
         }
     },
 
-    _setPosOrigin:function(pos){
+    _setPosOrigin: function (pos) {
         L.DomUtil.setPosition(this._icon, pos);
 
-		if (this._shadow) {
-			L.DomUtil.setPosition(this._shadow, pos);
-		}
+        if (this._shadow) {
+            L.DomUtil.setPosition(this._shadow, pos);
+        }
 
-		this._zIndex = pos.y + this.options.zIndexOffset;
+        this._zIndex = pos.y + this.options.zIndexOffset;
 
-		this._resetZIndex();
+        this._resetZIndex();
     }
 })
