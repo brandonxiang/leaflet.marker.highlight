@@ -1,0 +1,25 @@
+{
+  "name": "leaflet.marker.hightlight",
+  "version": "1.0.0",
+  "description": "Highlight performance for L.marker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev":"browser-sync start --server --files \"**/*.html,**/*.css,**/*.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brandonxiang/leaflet.marker.hightlight.git"
+  },
+  "keywords": [
+    "leaflet",
+    "highlight",
+    "marker"
+  ],
+  "author": "brandonxiang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brandonxiang/leaflet.marker.hightlight/issues"
+  },
+  "homepage": "https://github.com/brandonxiang/leaflet.marker.hightlight#readme"
+}
