@@ -1,14 +1,15 @@
 {
     "name": "leaflet.marker.hightlight",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Highlight performance for L.marker",
     "main": "index.js",
     "scripts": {
         "dev": "browser-sync start --server --files \"**/*.html,**/*.css,**/*.js\"",
         "build-js": "cat  index.js > ./dist/leaflet.marker.highlight-src.js",
         "build-css": "cat  index.css > ./dist/leaflet.marker.highlight-src.css",
-        "compress": "uglifyjs ./dist/leaflet.marker.highlight-src.js -o ./dist/leaflet.marker.highlight.js -m",
-        "build": "npm run build-js && npm run build-css && npm run compress",
+        "compress-js": "uglifyjs ./dist/leaflet.marker.highlight-src.js -o ./dist/leaflet.marker.highlight.js -m",
+        "compress-css": "uglifycss ./dist/leaflet.marker.highlight-src.css > ./dist/leaflet.marker.highlight.css",
+        "build": "npm run build-js && npm run build-css && npm run compress-js && npm run compress-css",
         "release": "git push origin master && git checkout gh-pages && git merge master && git push origin gh-pages && git checkout master && npm publish"
     },
     "repository": {
