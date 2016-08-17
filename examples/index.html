@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>Map</title>
     <link href="//cdn.bootcss.com/leaflet/1.0.0-rc.3/leaflet.css" rel="stylesheet">
     <link rel="stylesheet" href="../index.css">
     <style>
-body { margin:0; padding:0; }
-#map { position:absolute; top:0; bottom:0; width:100%; }
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
     </style>
 </head>
+
 <body>
     <div id="map"></div>
     <script src="//cdn.bootcss.com/leaflet/1.0.0-rc.3/leaflet-src.js"></script>
@@ -21,11 +32,12 @@ body { margin:0; padding:0; }
             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        var marker1 = L.marker([51.5, -0.09],{highlight:true}).addTo(map);
+        var marker1 = L.marker([51.5, -0.09], {
+            highlight: true
+        }).addTo(map);
         var marker2 = L.marker([51.5, -0.15]).addTo(map);
-
-        // marker1.enableHighlight();
-        
+        var marker3 = L.marker([51.52, -0.18]).addTo(map);
     </script>
 </body>
+
 </html>

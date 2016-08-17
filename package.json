@@ -1,25 +1,29 @@
 {
-  "name": "leaflet.marker.hightlight",
-  "version": "1.0.0",
-  "description": "Highlight performance for L.marker",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev":"browser-sync start --server --files \"**/*.html,**/*.css,**/*.js\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/brandonxiang/leaflet.marker.hightlight.git"
-  },
-  "keywords": [
-    "leaflet",
-    "highlight",
-    "marker"
-  ],
-  "author": "brandonxiang",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/brandonxiang/leaflet.marker.hightlight/issues"
-  },
-  "homepage": "https://github.com/brandonxiang/leaflet.marker.hightlight#readme"
+    "name": "leaflet.marker.hightlight",
+    "version": "0.0.1",
+    "description": "Highlight performance for L.marker",
+    "main": "index.js",
+    "scripts": {
+        "dev": "browser-sync start --server --files \"**/*.html,**/*.css,**/*.js\"",
+        "build-js": "cat  index.js > ./dist/leaflet.marker.highlight-src.js",
+        "build-css": "cat  index.css > ./dist/leaflet.marker.highlight-src.css",
+        "compress": "uglifyjs ./dist/leaflet.marker.highlight-src.js -o ./dist/leaflet.marker.highlight.js -m",
+        "build": "npm run build-js && npm run build-css && npm run compress",
+        "release": "git push origin master && git checkout gh-pages && git merge master && git push origin gh-pages && git checkout master && npm publish"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/brandonxiang/leaflet.marker.hightlight.git"
+    },
+    "keywords": [
+        "leaflet",
+        "highlight",
+        "marker"
+    ],
+    "author": "brandonxiang",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/brandonxiang/leaflet.marker.hightlight/issues"
+    },
+    "homepage": "https://github.com/brandonxiang/leaflet.marker.hightlight#readme"
 }
