@@ -22,7 +22,7 @@
     transition: all 1000ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-img:hover+.light .glow {
+img:hover+.light.temporary .glow {
     width: 200px;
     height: 200px;
     opacity: 0.2;
@@ -44,7 +44,7 @@ img:hover+.light .glow {
     transition: all 1000ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-img:hover+.light .flare {
+img:hover+.light.temporary .flare {
     width: 50px;
     height: 50px;
     opacity: 0.5;
@@ -78,12 +78,12 @@ img:hover+.light .flare {
     }
 }
 
-.active .glow {
+.permanent .glow {
     background: -webkit-radial-gradient(rgba(66, 186, 255, 1), rgba(255, 223, 67, 0) 70%)!important;
     -webkit-animation: highlight1 2s infinite cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-.active .flare {
+.permanent .flare {
     background: rgba(66, 186, 255, 1) !important;
     -webkit-animation: highlight 2s infinite cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
