@@ -14,11 +14,11 @@ npm install leaflet.marker.highlight --save
 
 ## Usage
 
-### Shortenly Highlight
+### Temporarily Highlight
 
 mouseover for highlight effects
 
-### Parmanently Highlight
+### Permanently Highlight
 
 ```
 var marker1 = L.marker([51.5, -0.09], {highlight: true}).addTo(map);

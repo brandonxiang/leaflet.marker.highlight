@@ -33,9 +33,11 @@
         }).addTo(map);
 
         var marker1 = L.marker([51.5, -0.09], {
-            highlight: true
+            highlight: "permanent"
         }).addTo(map);
-        var marker2 = L.marker([51.5, -0.15]).addTo(map);
+        var marker2 = L.marker([51.5, -0.15], {
+            highlight: "temporary"
+        }).addTo(map);
         var marker3 = L.marker([51.52, -0.18]).addTo(map);
     </script>
 </body>
