@@ -16,9 +16,28 @@ npm install leaflet.marker.highlight --save
 
 ### Temporarily Highlight
 
-mouseover for highlight effects
+Highlight effects will occur in the situation that you put your mouse over the marker.
+
+You can set it when initializing a marker. 
+
+```
+var marker1 = L.marker([51.5, -0.09], {highlight: 'temporary'}).addTo(map);
+```
+
+Or you can use a method to enable the highlight effects.
+
+```
+marker1.enableTemporaryHighlight();
+```
+
+```
+marker1.disableTemporaryHighlight();
+```
+
 
 ### Permanently Highlight
+
+Highlight effects are always on.
 
 ```
 var marker1 = L.marker([51.5, -0.09], {highlight: true}).addTo(map);
@@ -39,3 +58,8 @@ marker1.disableHighlight();
 ## License
 
 [MIT](LICENSE)
+
+
+## Chinese Version
+
+[README](README_CN.md)
