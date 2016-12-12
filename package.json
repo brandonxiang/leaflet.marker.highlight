@@ -1,5 +1,5 @@
 {
-    "name": "leaflet.marker.hightlight",
+    "name": "leaflet.marker.highlight",
     "version": "0.0.3",
     "description": "Highlight performance for L.marker",
     "main": "index.js",
