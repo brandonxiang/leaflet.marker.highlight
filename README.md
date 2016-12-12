@@ -1,4 +1,4 @@
-# leaflet.marker.hightlight
+# leaflet.marker.highlight
 Highlight effects for L.marker.
 
 ## Demo
