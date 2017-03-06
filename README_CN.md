@@ -20,6 +20,10 @@ npm install leaflet.marker.highlight --save
 
 在鼠标移动到marker上时显示。在初始化时，可以针对某个该marker设置`highlight`的属性。
 
+```
+var marker1 = L.marker([51.5, -0.09], {highlight: 'temporary'}).addTo(map);
+```
+
 #### 使用方法
 
 使用`enableTemporaryHighlight`设置打开针对某个marker临时高亮，使用`disbaleTemporaryHighlight`设置取消临时高亮。
@@ -37,7 +41,7 @@ marker1.disableTemporaryHighlight();
 在初始化时，固定显示marker的位置，设置`highlight`的属性。
 
 ```
-var marker1 = L.marker([51.5, -0.09], {highlight: permanent}).addTo(map);
+var marker1 = L.marker([51.5, -0.09], {highlight: 'permanent'}).addTo(map);
 ```
 
 #### 使用方法
