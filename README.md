@@ -46,13 +46,13 @@ var marker1 = L.marker([51.5, -0.09], {highlight: true}).addTo(map);
 or
 
 ```
-marker1.enableHighlight();
+marker1.enablePermanentHighlight();
 ```
 
 Cancel the marker highlight effects by 
 
 ```
-marker1.disableHighlight();
+marker1.disablePermanentHighlight();
 ```
 
 ## License
