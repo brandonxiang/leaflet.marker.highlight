@@ -40,7 +40,7 @@ marker1.disableTemporaryHighlight();
 Highlight effects are always on.
 
 ```
-var marker1 = L.marker([51.5, -0.09], {highlight: true}).addTo(map);
+var marker1 = L.marker([51.5, -0.09], {highlight: 'permanent'}).addTo(map);
 ```
 
 or
