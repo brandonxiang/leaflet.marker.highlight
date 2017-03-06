@@ -44,11 +44,11 @@ var marker1 = L.marker([51.5, -0.09], {highlight: permanent}).addTo(map);
 
 或者你也可以不在初始化的情况下设置，通过`enablePermanentHighlight`去设置其永久高亮特效，或者通过`disablePermanentHighlight`去取消高亮特效。
 ```
-marker1.enableTemporaryHighlight();
+marker1.enablePermanentHighlight();
 ```
 
 ```
-marker1.disableTemporaryHighlight();
+marker1.disablePermanentHighlight();
 ```
 
 
