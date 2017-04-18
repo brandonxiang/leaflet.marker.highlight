@@ -12,6 +12,9 @@ L.Marker.include({
             L.DomUtil.addClass(light, "temporary");
         }
         this.getPane().appendChild(light);
+        this.on('remove', function(){
+            light.remove();
+        })
     },
 
     _setPos: function(pos) {
