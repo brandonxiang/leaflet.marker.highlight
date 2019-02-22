@@ -1,5 +1,5 @@
 L.Marker.include({
-    _initIcon: function() {
+    _initIcon: function () {
         this._initIconOrigin();
 
         var light = this._light = L.DivIcon.prototype.createIcon();
@@ -12,37 +12,51 @@ L.Marker.include({
             L.DomUtil.addClass(light, "temporary");
         }
         this.getPane().appendChild(light);
-        this.on('remove', function(){
-            light.remove();
-        })
     },
 
-    _setPos: function(pos) {
+    _setPos: function (pos) {
         this._setPosOrigin(pos)
         L.DomUtil.setPosition(this._light, pos);
     },
 
-    enableTemporaryHighlight: function() {
+    enableTemporaryHighlight: function () {
         this.options.highlight = "temporary";
         L.DomUtil.addClass(this._light, "temporary");
     },
 
-    disableTemporaryHighlight: function(value) {
+    disableTemporaryHighlight: function (value) {
         delete this.options.highlight;
         L.DomUtil.removeClass(this._light, "temporary")
     },
 
-    enablePermanentHighlight: function() {
+    enablePermanentHighlight: function () {
         this.options.highlight = "permanent";
         L.DomUtil.addClass(this._light, "permanent");
     },
 
-    disablePermanentHighlight: function(value) {
+    disablePermanentHighlight: function (value) {
         delete this.options.highlight;
         L.DomUtil.removeClass(this._light, "permanent")
     },
 
-    _initIconOrigin: function() {
+    enableDynamicHighlight: function (value) {
+        delete this.options.highlight;
+        L.DomUtil.addClass(this._light, value)
+    },
+
+    disableDynamicHighlight: function (value) {
+        delete this.options.highlight;
+        L.DomUtil.removeClass(this._light, value);
+    },
+
+    showTimerHighlight: function (value, time=12000) {
+        this.enableDynamicHighlight(value);
+        setTimeout(() => {
+            this.disableDynamicHighlight(value);
+        }, time);
+    },
+
+    _initIconOrigin: function () {
         //The same as _ininIcon
         var options = this.options,
             classToAdd = 'leaflet-zoom-' + (this._zoomAnimated ? 'animated' : 'hide');
@@ -93,11 +107,9 @@ L.Marker.include({
         }
         this._shadow = newShadow;
 
-
         if (options.opacity < 1) {
             this._updateOpacity();
         }
-
 
         if (addIcon) {
             this.getPane().appendChild(this._icon);
@@ -108,7 +120,7 @@ L.Marker.include({
         }
     },
 
-    _setPosOrigin: function(pos) {
+    _setPosOrigin: function (pos) {
         L.DomUtil.setPosition(this._icon, pos);
 
         if (this._shadow) {
