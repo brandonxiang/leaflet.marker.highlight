@@ -2,15 +2,22 @@
     "name": "leaflet.marker.highlight",
     "version": "0.0.3",
     "description": "Highlight performance for L.marker",
-    "main": "index.js",
+    "main": "dist/leaflet-marker-highlight.js",
+    "unpkg": "dist/leaflet-marker-highlight.min.js",
+    "module": "dist/leaflet-marker-highlight.mjs",
+    "exports": {
+      "require": "./dist/leaflet-marker-highlight.js",
+      "default": "./dist/leaflet-marker-highlight.modern.js"
+    },
+    "files": [
+      "dist"
+    ],
     "scripts": {
-        "dev": "browser-sync start --server --files \"**/*.html,**/*.css,**/*.js\"",
-        "build-js": "cat  index.js > ./dist/leaflet.marker.highlight-src.js",
-        "build-css": "cat  index.css > ./dist/leaflet.marker.highlight-src.css",
-        "compress-js": "uglifyjs ./dist/leaflet.marker.highlight-src.js -o ./dist/leaflet.marker.highlight.js -m",
-        "compress-css": "uglifycss ./dist/leaflet.marker.highlight-src.css > ./dist/leaflet.marker.highlight.css",
-        "build": "npm run build-js && npm run build-css && npm run compress-js && npm run compress-css",
-        "release": "git push origin master && git checkout gh-pages && git merge master && git push origin gh-pages && git checkout master && npm publish"
+        "dev": "sirv examples --port 3000 --dev",
+        "build": "npm run build-js && npm run build-css && npm run build-demo",
+        "build-demo": "cp dist/leaflet-marker-highlight.min.js examples && cp dist/leaflet-marker-highlight.css examples",
+        "build-js": "microbundle --globals leaflet=L --sourcemap false",
+        "build-css": "uglifycss ./index.css > ./dist/leaflet-marker-highlight.css"
     },
     "repository": {
         "type": "git",
@@ -26,5 +33,13 @@
     "bugs": {
         "url": "https://github.com/brandonxiang/leaflet.marker.hightlight/issues"
     },
-    "homepage": "https://github.com/brandonxiang/leaflet.marker.hightlight#readme"
+    "homepage": "https://github.com/brandonxiang/leaflet.marker.hightlight#readme",
+    "dependencies": {
+        "leaflet": "^1.0.0"
+    },
+    "devDependencies": {
+        "sirv-cli": "^1.0.14",
+        "microbundle": "^0.14.2",
+        "uglifycss": "^0.0.29"
+    }
 }

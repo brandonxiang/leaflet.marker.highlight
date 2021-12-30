@@ -1,8 +1,11 @@
+import L from 'leaflet';
+
 L.Marker.include({
     _initIcon: function() {
         this._initIconOrigin();
 
-        var light = this._light = L.DivIcon.prototype.createIcon();
+        this._light = L.DivIcon.prototype.createIcon();
+        var light = this._light;
         L.DomUtil.addClass(light, "light");
         L.DomUtil.create('span', 'glow', light);
         L.DomUtil.create('span', 'flare', light);
@@ -40,6 +43,23 @@ L.Marker.include({
     disablePermanentHighlight: function(value) {
         delete this.options.highlight;
         L.DomUtil.removeClass(this._light, "permanent")
+    },
+
+    enableDynamicHighlight: function (value) {
+        delete this.options.highlight;
+        L.DomUtil.addClass(this._light, value)
+    },
+
+    disableDynamicHighlight: function (value) {
+        delete this.options.highlight;
+        L.DomUtil.removeClass(this._light, value);
+    },
+
+    showTimerHighlight: function (value, time=12000) {
+        this.enableDynamicHighlight(value);
+        setTimeout(() => {
+            this.disableDynamicHighlight(value);
+        }, time);
     },
 
     _initIconOrigin: function() {
