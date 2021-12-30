@@ -1,6 +1,6 @@
 {
     "name": "leaflet.marker.highlight",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "Highlight performance for L.marker",
     "main": "dist/leaflet-marker-highlight.js",
     "unpkg": "dist/leaflet-marker-highlight.min.js",
